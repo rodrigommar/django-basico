@@ -1,7 +1,16 @@
-from django.http import HttpResponse
 
-#from django.shortcuts import render
+from django.shortcuts import render
 
 def home(request):
     print('HOME')
-    return HttpResponse('HOME do app 1')
+    
+    contexto = {
+        'text': 'Olá, estou na Home por uma variavel "contexto"',
+        'title': 'HOME | '
+    }
+    
+    return render(
+        request,
+        template_name='home/index.html',
+        context = contexto,
+    )
